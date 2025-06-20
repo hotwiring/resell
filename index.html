@@ -16,7 +16,6 @@
       overflow-x: hidden;
     }
 
-    /* HEADER */
     header {
       background: black;
       color: white;
@@ -75,7 +74,6 @@
       font-weight: bold;
     }
 
-    /* SECTION ANIMATION */
     section {
       padding: 20px;
       opacity: 0;
@@ -109,7 +107,6 @@
       justify-content: center;
     }
 
-    /* PRODUCT POP + NEON */
     .product {
       background: black;
       border-radius: 10px;
@@ -217,7 +214,6 @@
       color: white;
     }
 
-    /* Music Toggle Button */
     .music-toggle {
       position: fixed;
       bottom: 20px;
@@ -230,15 +226,6 @@
       font-size: 18px;
       cursor: pointer;
       z-index: 1000;
-    }
-
-    #player {
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      position: fixed;
-      bottom: 0;
-      left: 0;
     }
   </style>
 </head>
@@ -357,47 +344,27 @@
   updateParticles();
 </script>
 
-<!-- YouTube IFrame API for Music -->
-<div id="player"></div>
+<!-- Audio Music Player -->
+<audio id="bg-music" src="background.mp3" autoplay loop></audio>
 
-<button class="music-toggle" id="music-toggle">🔇</button>
+<button class="music-toggle" id="music-toggle">🔈</button>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  let player;
-  let musicMuted = true;
+  const audio = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+  let isMuted = false;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '0',
-      width: '0',
-      videoId: 'C217vygclrk',
-      playerVars: {
-        autoplay: 1,
-        loop: 1,
-        playlist: 'C217vygclrk',
-        controls: 0,
-        mute: 1,
-        modestbranding: 1,
-        rel: 0
-      },
-      events: {
-        onReady: function(event) {
-          event.target.playVideo();
-        }
-      }
-    });
-  }
+  audio.volume = 0.5;
 
-  document.getElementById('music-toggle').addEventListener('click', () => {
-    if (musicMuted) {
-      player.unMute();
-      musicMuted = false;
-      document.getElementById('music-toggle').textContent = '🔈';
+  musicBtn.addEventListener('click', () => {
+    if (isMuted) {
+      audio.play();
+      musicBtn.textContent = '🔈';
+      isMuted = false;
     } else {
-      player.mute();
-      musicMuted = true;
-      document.getElementById('music-toggle').textContent = '🔇';
+      audio.pause();
+      musicBtn.textContent = '🔇';
+      isMuted = true;
     }
   });
 </script>
