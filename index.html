@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>7RESELL7 - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <canvas id="particles"></canvas>
+  <h1>7RESELL7</h1>
+  <p class="typing" id="typed-text"></p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="catalog.html">Catalog</a>
+</nav>
+
+<section id="home">
+  <h2>Welcome to 7RESELL7</h2>
+  <p>🔥 Affordable Streetwear, Followers, and More 🔥</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 7RESELL7. All rights reserved.</p>
+</footer>
+
+<audio id="bg-music" src="background.mp3" autoplay loop></audio>
+<button class="music-toggle" id="music-toggle">🔈</button>
+
+<script>
+  const text = "🔥 Affordable Streetwear, Followers, and More 🔥";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typed-text").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 50);
+    }
+  }
+  window.onload = type;
+
+  const audio = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+  let isMuted = false;
+
+  audio.volume = 0.5;
+  musicBtn.addEventListener('click', () => {
+    if (isMuted) {
+      audio.play();
+      musicBtn.textContent = '🔈';
+      isMuted = false;
+    } else {
+      audio.pause();
+      musicBtn.textContent = '🔇';
+      isMuted = true;
+    }
+  });
+</script>
+
+</body>
+</html>
