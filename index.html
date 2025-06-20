@@ -4,35 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>7RESELL7 - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>7RESELL7</h1>
-  <p class="typing" id="typed-text"></p>
-</header>
-
+<!-- Vertical Sidebar Nav -->
 <nav>
   <a href="index.html">🏠 Home</a>
   <a href="catalog.html">🛒 Catalog</a>
   <a href="contact.html">📩 Contact</a>
 </nav>
 
+<!-- Page Content -->
+<main>
+  <header>
+    <h1>7RESELL7</h1>
+    <p class="typing" id="typed-text"></p>
+  </header>
 
-<section id="home">
-  <h2>Welcome to 7RESELL7</h2>
-  <p style="text-align:center;">🔥 Affordable Streetwear, Followers, and More 🔥</p>
-</section>
+  <section id="home">
+    <h2>Welcome to 7RESELL7</h2>
+    <p style="text-align:center; font-size: 1.1rem;">
+      🔥 Affordable Streetwear, Followers, and More 🔥
+    </p>
+  </section>
 
-<footer>
-  <p>&copy; 2025 7RESELL7. All rights reserved.</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 7RESELL7. All rights reserved.</p>
+  </footer>
+</main>
 
+<!-- Music -->
 <audio id="bg-music" src="background.mp3" autoplay loop></audio>
 <button class="music-toggle" id="music-toggle">🔈</button>
 
+<!-- Typing Text + Music Toggle Script -->
 <script>
   const text = "🔥 Affordable Streetwear, Followers, and More 🔥";
   let i = 0;
@@ -46,20 +53,14 @@
   window.onload = type;
 
   const audio = document.getElementById('bg-music');
-  const musicBtn = document.getElementById('music-toggle');
-  let isMuted = false;
+  const toggle = document.getElementById('music-toggle');
+  let muted = false;
+  audio.volume = 0.4;
 
-  audio.volume = 0.5;
-  musicBtn.addEventListener('click', () => {
-    if (isMuted) {
-      audio.play();
-      musicBtn.textContent = '🔈';
-      isMuted = false;
-    } else {
-      audio.pause();
-      musicBtn.textContent = '🔇';
-      isMuted = true;
-    }
+  toggle.addEventListener('click', () => {
+    muted = !muted;
+    audio[muted ? 'pause' : 'play']();
+    toggle.textContent = muted ? '🔇' : '🔈';
   });
 </script>
 
