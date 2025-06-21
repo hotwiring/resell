@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>7RESELL7</title>
+  <title>SXAR</title>
   <style>
     * {
       box-sizing: border-box;
@@ -24,12 +24,6 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-    }
-
-    header h1 {
-      animation: slideFadeIn 1s ease forwards;
-      z-index: 2;
-      position: relative;
     }
 
     .typing {
@@ -240,14 +234,38 @@
       bottom: 0;
       left: 0;
     }
+
+    /* Logo Animation */
+    .logo-spin-glow {
+      height: 100px;
+      animation: spin 5s linear infinite, glowPulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px #00ff88) drop-shadow(0 0 20px #00ff88);
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 10px #00ff88) drop-shadow(0 0 20px #00ff88);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #00ff88) drop-shadow(0 0 40px #00ff88);
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <canvas id="particles"></canvas>
-  <h1>7RESELL7</h1>
-  <p class="typing" id="typed-text"></p>
+  <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; z-index: 2; position: relative;">
+    <img src="6436E355-5C98-4C03-82AE-4F3D0ACECBF7.png" alt="SXAR Logo" class="logo-spin-glow" />
+    <p class="typing" id="typed-text"></p>
+  </div>
 </header>
 
 <nav>
@@ -257,7 +275,7 @@
 </nav>
 
 <section id="home">
-  <h2>Welcome to 7RESELL7</h2>
+  <h2>Welcome to SXAR</h2>
   <p>We sell authentic and affordable gear – from AirPods to LV drip.</p>
 </section>
 
@@ -282,12 +300,12 @@
     <div class="product">
       <img src="LV Beanie.JPG" alt="LV Beanie" />
       <h3>LV Beanie</h3>
-      <p>$30</p>
+      <p>$20</p>
       <a class="cashapp-btn" href="https://cash.app/$realayo00" target="_blank">Pay with Cash App</a>
     </div>
 
     <div class="product">
-      <img src="how-much-do-you-think-youve-spent-on-soccer-jerseys-in-your-v0-jy60j220vp8c1.webp" alt="Soccer Jersey" />
+      <img src="https://i.imgur.com/jrKhz8e.jpg" alt="Soccer Jersey" />
       <h3>Soccer Jersey</h3>
       <p>$30</p>
       <a class="cashapp-btn" href="https://cash.app/$realayo00" target="_blank">Pay with Cash App</a>
@@ -383,7 +401,7 @@
       },
       events: {
         onReady: function(event) {
-          event.target.playVideo();
+          event.target.playVideo(); 
         }
       }
     });
