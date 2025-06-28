@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SXAR - Luxury Streetwear</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="logo">SXAR</div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Clothing ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="clothing.html">All Clothing</a></li>
+            <li><a href="#">T-Shirts</a></li>
+            <li><a href="#">Hoodies</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Shoes ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="shoes.html">All Shoes</a></li>
+            <li><a href="#">Sneakers</a></li>
+            <li><a href="#">Boots</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Accessories ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="accessories.html">All Accessories</a></li>
+            <li><a href="#">Hats</a></li>
+            <li><a href="#">Bags</a></li>
+          </ul>
+        </li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="cart.html" id="cart-icon" title="View Cart">
+      🛒 <span id="cart-count">0</span>
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Step Into Premium</h1>
+      <p>Elevated streetwear curated for the culture</p>
+      <a href="catalog.html" class="btn">Explore Collection</a>
+    </div>
+  </section>
+
+  <section class="categories reveal">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <a href="clothing.html" class="category-card">Clothing</a>
+      <a href="shoes.html" class="category-card">Shoes</a>
+      <a href="accessories.html" class="category-card">Accessories</a>
+      <a href="catalog.html" class="category-card">All Products</a>
+    </div>
+  </section>
+
+  <section class="products reveal">
+    <h2>Featured</h2>
+    <div class="product-grid">
+      <div class="product-card" data-id="1" data-name="Corteiz Tee" data-price="80" data-image="Corteiz.JPG">
+        <img src="Corteiz.JPG" alt="Corteiz Tee" />
+        <div class="info">
+          <h3>Corteiz Tee</h3>
+          <p>$80</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="2" data-name="Essentials Hoodie" data-price="120" data-image="https://via.placeholder.com/300x400">
+        <img src="https://via.placeholder.com/300x400" alt="Essentials Hoodie" />
+        <div class="info">
+          <h3>Essentials </h3>
+          <p>$120</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="3" data-name="LV Beanie" data-price="95" data-image="LVBeanie.JPG">
+        <img src="LV Beanie.JPG" alt="LV Beanie" />
+        <div class="info">
+          <h3>LV Beanie</h3>
+          <p>$95</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SXAR. Built for the culture.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

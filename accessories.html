@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SXAR - Accessories</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="logo">SXAR</div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Clothing ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="clothing.html">All Clothing</a></li>
+            <li><a href="#">T-Shirts</a></li>
+            <li><a href="#">Hoodies</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Shoes ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="shoes.html">All Shoes</a></li>
+            <li><a href="#">Sneakers</a></li>
+            <li><a href="#">Boots</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Accessories ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="accessories.html">All Accessories</a></li>
+            <li><a href="#">Hats</a></li>
+            <li><a href="#">Bags</a></li>
+          </ul>
+        </li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="cart.html" id="cart-icon" title="View Cart">
+      🛒 <span id="cart-count">0</span>
+    </a>
+  </header>
+
+  <section class="products reveal">
+    <h2>Accessories</h2>
+    <div class="product-grid">
+      <div class="product-card" data-id="301" data-name="LV Beanie" data-price="95" data-image="https://via.placeholder.com/300x400">
+        <img src="LV Beanie.JPG" alt="LV Beanie" />
+        <div class="info">
+          <h3>LV Beanie</h3>
+          <p>$95</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="302" data-name="Gallery Dept Hat" data-price="110" data-image="https://via.placeholder.com/300x400">
+        <img src="gallery-dept-hat.PNG" alt="Gallery Dept Hat" />
+        <div class="info">
+          <h3>Gallery Dept Hat</h3>
+          <p>$110</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="303" data-name="Supreme Belt" data-price="75" data-image="https://via.placeholder.com/300x400">
+        <img src="https://via.placeholder.com/300x400" alt="Supreme Belt" />
+        <div class="info">
+          <h3>Supreme Belt</h3>
+          <p>$75</p>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SXAR. Built for the culture.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SXAR - Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    .cart-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      border-bottom: 1px solid #ddd;
+      padding: 15px;
+      text-align: left;
+    }
+    img {
+      width: 60px;
+      border-radius: 8px;
+    }
+    .total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    button.remove-btn {
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button.remove-btn:hover {
+      background: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SXAR</div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="cart-container">
+    <h1>Your Cart</h1>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="total" id="cart-total">Total: $0.00</div>
+    <button onclick="alert('Checkout coming soon!')" class="btn">Checkout</button>
+  </main>
+
+  <script>
+    const cartTableBody = document.querySelector("#cart-table tbody");
+    const cartTotalEl = document.getElementById("cart-total");
+
+    function getCart() {
+      const cart = localStorage.getItem("sxar-cart");
+      return cart ? JSON.parse(cart) : [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem("sxar-cart", JSON.stringify(cart));
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      cartTableBody.innerHTML = "";
+      if (cart.length === 0) {
+        cartTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center;">Your cart is empty.</td></tr>`;
+        cartTotalEl.textContent = "Total: $0.00";
+        return;
+      }
+      let total = 0;
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><img src="${item.image}" alt="${item.name}"></td>
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>${item.quantity}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td><button class="remove-btn" data-id="${item.id}">Remove</button></td>
+        `;
+        cartTableBody.appendChild(row);
+      });
+      cartTotalEl.textContent = `Total: $${total.toFixed(2)}`;
+
+      // Add remove handlers
+      document.querySelectorAll(".remove-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          removeFromCart(btn.dataset.id);
+        });
+      });
+    }
+
+    function removeFromCart(id) {
+      let cart = getCart();
+      cart = cart.filter(item => item.id !== id);
+      saveCart(cart);
+      renderCart();
+      // Also update count in header if on index page
+      if(window.opener && window.opener.updateCartCount) window.opener.updateCartCount();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
